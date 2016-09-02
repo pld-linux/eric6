@@ -6,7 +6,7 @@ Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 # Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		eric6
 Version:	6.1.8
-Release:	0.6
+Release:	1
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/eric6-%{version}.tar.gz
@@ -60,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 # for --pyqt=4
 # %{_datadir}/qt4/qsci/api/qss/
 # %{_datadir}/qt4/qsci/api/ruby/
+# NOTE: file %{_datadir}/qt4/qsci/api/ruby/Ruby-1.8.7.api from install of eric6-6.1.8-0.1.noarch conflicts with file from package eric4-4.5.24-3.noarch
 # %{_datadir}/qt4/qsci/api/python/eric6.*
 # %{_datadir}/qt4/qsci/api/python/zope-*.api
 
@@ -73,6 +74,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/eric6.desktop
 %{_desktopdir}/eric6_webbrowser.desktop
 %{_datadir}/appdata/eric6.appdata.xml
-# file %{_datadir}/qt4/qsci/api/ruby/Ruby-1.8.7.api from install of eric6-6.1.8-0.1.noarch conflicts with file from package eric4-4.5.24-3.noarch
 %{py_sitescriptdir}/eric6config.py
 %{py_sitescriptdir}/eric6plugins
