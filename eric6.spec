@@ -6,7 +6,7 @@ Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 # Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		eric6
 Version:	6.1.10
-Release:	0.1
+Release:	1
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
