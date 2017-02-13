@@ -5,12 +5,12 @@ Summary:	Eric6 - a full featured Python IDE
 Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 # Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		eric6
-Version:	6.1.10
-Release:	1
+Version:	17.02.1
+Release:	0.1
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	b08a7669c6d2bb55e32e1bf1b82646f9
+# Source0-md5:	07b35888949b584ccdf4dd0d61e18df5
 URL:		http://eric-ide.python-projects.org/index.html
 BuildRequires:	rpm-pythonprov
 # for the py_build, py_install macros
@@ -76,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/eric*.png
 %{_desktopdir}/eric6.desktop
 %{_desktopdir}/eric6_webbrowser.desktop
+%{_desktopdir}/eric6_browser.desktop
 %{_datadir}/appdata/eric6.appdata.xml
 %{py_sitescriptdir}/eric6config.py
 %{py_sitescriptdir}/eric6plugins
