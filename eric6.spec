@@ -1,4 +1,4 @@
-# TODO: Switch to python3
+%bcond_with	python2 # Use python2 (NOTE: as for 17.03.1 it has issuses in PLD)
 
 %define 	module	eric6
 Summary:	Eric6 - a full featured Python IDE
@@ -6,17 +6,17 @@ Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 # Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		eric6
 Version:	17.03.1
-Release:	0.1
+Release:	1
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	4e56a985387cceed981db1ba2579183b
 URL:		http://eric-ide.python-projects.org/index.html
 BuildRequires:	rpm-pythonprov
-# for the py_build, py_install macros
+BuildRequires:	rpmbuild(macros) >= 1.714
+%if %{with python2}
 BuildRequires:	python-modules
 BuildRequires:	python-setuptools
-BuildRequires:	rpmbuild(macros) >= 1.714
 # NOTE: As for 6.1.8  eric6 still tries to import PyQt5 while having PyQt4 leading to crash
 # 	http://die-offenbachs.homelinux.org:48888/issues/issue204
 # for --pyqt=4
@@ -27,6 +27,17 @@ BuildRequires:	python-PyQt5-qscintilla2
 BuildRequires:	python-PyQt5-uic
 Requires:	python-PyQt5-qscintilla2
 Requires:	python-modules
+Suggests:	python-pylint
+%else
+BuildRequires:	python3-PyQt5-qscintilla2
+BuildRequires:	python3-PyQt5-uic
+BuildRequires:	python3-modules
+BuildRequires:	python3-setuptools
+Requires:	python3-PyQt5-qscintilla2
+Requires:	python3-modules
+Suggests:	python3-pylint
+%endif
+
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,7 +58,11 @@ używającym PyQt i QScintilla.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+%if %{with python2}
 python install.py -z -c -b %{_bindir} -d %{py_sitescriptdir} -i $RPM_BUILD_ROOT  --pyqt=5
+%else
+python3 install.py -z -c -b %{_bindir} -d %{py3_sitescriptdir} -i $RPM_BUILD_ROOT  --pyqt=5
+%endif
 mkdir $RPM_BUILD_ROOT%{_datadir}/appdata
 mv $RPM_BUILD_ROOT%{_datadir}/metainfo/eric6.appdata.xml $RPM_BUILD_ROOT%{_datadir}/appdata
 
@@ -57,7 +72,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.rst
+%if %{with python2}
 %{py_sitescriptdir}/%{module}
+%else
+%{py3_sitescriptdir}/%{module}
+%endif
+
 %attr(755,root,root) %{_bindir}/eric6
 %attr(755,root,root) %{_bindir}/eric6_*
 # for --pyqt=4
@@ -78,5 +98,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/eric6_webbrowser.desktop
 %{_desktopdir}/eric6_browser.desktop
 %{_datadir}/appdata/eric6.appdata.xml
+%if %{with python2}
 %{py_sitescriptdir}/eric6config.py
 %{py_sitescriptdir}/eric6plugins
+%else
+%{py3_sitescriptdir}/eric6config.py
+%{py3_sitescriptdir}/eric6plugins
+%endif
