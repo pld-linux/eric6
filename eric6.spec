@@ -6,7 +6,7 @@ Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 # Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		eric6
 Version:	17.03.1
-Release:	1
+Release:	1.1
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
@@ -33,6 +33,8 @@ BuildRequires:	python3-PyQt5-qscintilla2
 BuildRequires:	python3-PyQt5-uic
 BuildRequires:	python3-modules
 BuildRequires:	python3-setuptools
+# NOTE: Not sure if Qt5Svg should be listed here or be R by other BRs.
+BuildRequires:	Qt5Svg
 Requires:	python3-PyQt5-qscintilla2
 Requires:	python3-modules
 Suggests:	python3-pylint
