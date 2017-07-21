@@ -1,16 +1,19 @@
 %bcond_with	python2 # Use python2 (NOTE: as for 17.03.1 it has issuses in PLD)
 
+# NOTE: Detlev Offenbach <detlev@die-offenbachs.de> (author) 2017/04/13 wrote:
+# "eric6 can be used with  Python2 or Python3 and with PyQt5 or PyQt4. 
+# However, the recommended combination is PyQt5 on Python3.
+
 %define 	module	eric6
 Summary:	Eric6 - a full featured Python IDE
 Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
-# Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		eric6
-Version:	17.03.1
-Release:	2
+Version:	17.07
+Release:	1
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	4e56a985387cceed981db1ba2579183b
+# Source0-md5:	c21c097bf36259ff61187e2698b7c50d
 URL:		http://eric-ide.python-projects.org/index.html
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
