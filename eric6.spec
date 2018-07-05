@@ -9,7 +9,7 @@ Summary:	Eric6 - a full featured Python IDE
 Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 Name:		eric6
 Version:	17.07
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
