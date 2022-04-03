@@ -1,0 +1,64 @@
+--- eric6-17.07/install.py~	2017-07-02 12:13:55.000000000 +0200
++++ eric6-17.07/install.py	2022-04-03 21:23:52.313234712 +0200
+@@ -1136,9 +1136,6 @@
+     elif sys.version_info < (3, 4, 0) and sys.version_info[0] == 3:
+         print('Sorry, you must have Python 3.4.0 or higher.')
+         exit(5)
+-    if sys.version_info > (3, 9, 9):
+-        print('Sorry, eric6 requires Python 3 or Python 2 for running.')
+-        exit(5)
+     
+     try:
+         import xml.etree            # __IGNORE_WARNING__
+@@ -1397,7 +1397,7 @@
+     global macAppBundlePath, macAppBundleName, macPythonExe
+     global pyqtVariant, pyqtOverride, installApis
+     
+-    if sys.version_info < (2, 7, 0) or sys.version_info > (3, 9, 9):
++    if sys.version_info < (2, 7, 0):
+         print('Sorry, eric6 requires at least Python 2.7 or '
+               'Python 3 for running.')
+         exit(5)
+--- eric6-17.07/eric/install-debugclients.py~	2017-04-07 18:26:12.000000000 +0200
++++ eric6-17.07/eric/install-debugclients.py	2022-04-03 21:24:48.690481445 +0200
+@@ -249,7 +249,7 @@
+     global progName, modDir, doCleanup, doCompile, distDir
+     global sourceDir
+     
+-    if sys.version_info < (2, 7, 0) or sys.version_info > (3, 9, 9):
++    if sys.version_info < (2, 7, 0):
+         print('Sorry, eric6 requires at least Python 2.7 or '
+               'Python 3 for running.')
+         exit(5)
+--- eric6-17.07/eric/install.py~	2017-05-06 13:37:48.000000000 +0200
++++ eric6-17.07/eric/install.py	2022-04-03 21:25:30.767597607 +0200
+@@ -1136,9 +1136,6 @@
+     elif sys.version_info < (3, 4, 0) and sys.version_info[0] == 3:
+         print('Sorry, you must have Python 3.4.0 or higher.')
+         exit(5)
+-    if sys.version_info > (3, 9, 9):
+-        print('Sorry, eric6 requires Python 3 or Python 2 for running.')
+-        exit(5)
+     
+     try:
+         import xml.etree            # __IGNORE_WARNING__
+@@ -1394,7 +1394,7 @@
+     global macAppBundlePath, macAppBundleName, macPythonExe
+     global pyqtVariant, pyqtOverride, installApis
+     
+-    if sys.version_info < (2, 7, 0) or sys.version_info > (3, 9, 9):
++    if sys.version_info < (2, 7, 0):
+         print('Sorry, eric6 requires at least Python 2.7 or '
+               'Python 3 for running.')
+         exit(5)
+--- eric6-17.07/install-debugclients.py~	2017-07-02 12:13:55.000000000 +0200
++++ eric6-17.07/install-debugclients.py	2022-04-03 21:35:34.435071319 +0200
+@@ -249,7 +249,7 @@
+     global progName, modDir, doCleanup, doCompile, distDir
+     global sourceDir
+     
+-    if sys.version_info < (2, 7, 0) or sys.version_info > (3, 9, 9):
++    if sys.version_info < (2, 7, 0):
+         print('Sorry, eric6 requires at least Python 2.7 or '
+               'Python 3 for running.')
+         exit(5)

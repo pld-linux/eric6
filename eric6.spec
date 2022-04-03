@@ -4,7 +4,7 @@
 # "eric6 can be used with  Python2 or Python3 and with PyQt5 or PyQt4. 
 # However, the recommended combination is PyQt5 on Python3.
 
-%define 	module	eric6
+%define		module	eric6
 Summary:	Eric6 - a full featured Python IDE
 Summary(pl.UTF-8):	Eric6 - pełnowartościowe IDE dla Pythona
 Name:		eric6
@@ -14,6 +14,7 @@ License:	GPL v3
 Group:		Libraries/Python
 Source0:	https://sourceforge.net/projects/eric-ide/files/eric6/stable/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	c21c097bf36259ff61187e2698b7c50d
+Patch0:		python3.patch
 URL:		http://eric-ide.python-projects.org/index.html
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -21,7 +22,7 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	python-modules
 BuildRequires:	python-setuptools
 # NOTE: As for 6.1.8  eric6 still tries to import PyQt5 while having PyQt4 leading to crash
-# 	http://die-offenbachs.homelinux.org:48888/issues/issue204
+#	http://die-offenbachs.homelinux.org:48888/issues/issue204
 # for --pyqt=4
 # BuildRequires:	python-PyQt4-qscintilla2
 # BuildRequires:	python-PyQt4-uic
@@ -58,6 +59,7 @@ używającym PyQt i QScintilla.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 
