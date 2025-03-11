@@ -1,7 +1,7 @@
 %bcond_with	python2 # Use python2 (NOTE: as for 17.03.1 it has issuses in PLD)
 
 # NOTE: Detlev Offenbach <detlev@die-offenbachs.de> (author) 2017/04/13 wrote:
-# "eric6 can be used with  Python2 or Python3 and with PyQt5 or PyQt4. 
+# "eric6 can be used with  Python2 or Python3 and with PyQt5 or PyQt4.
 # However, the recommended combination is PyQt5 on Python3.
 
 %define		module	eric6
@@ -59,7 +59,7 @@ używającym PyQt i QScintilla.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 
